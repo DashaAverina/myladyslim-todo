@@ -1,6 +1,7 @@
-@import "../views/Main/Main.scss";
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500;700&display=swap");
 
+@import "../views/Main/Main.scss";
+@import "../components/TaskPopup/TaskPopup.scss";
 :root {
   //colors
   --black_0: #333333;

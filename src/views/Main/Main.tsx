@@ -1,3 +1,5 @@
+import { TaskContent } from "lib/tasks";
+import { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { FC } from "react";
@@ -9,21 +11,29 @@ const buttonTextData = {
   Ua: "Отримати завдання",
 };
 
-export const Main: FC = () => {
+export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
   const [lang, setLang] = useState<tLanguage>("Rus");
   const [loading, setLoading] = useState(false);
+  const [taskData, setTaskData] = useState();
+  const [curTask, setCurTask] = useState();
+  const timeout = useRef<ReturnType<typeof setTimeout> | undefined>();
 
   useEffect(() => {
     if (!loading) return;
-    const timeout = setTimeout(() => {
+    timeout.current = setTimeout(() => {
       setLoading(false);
     }, 2000);
 
-    return () => clearTimeout(timeout);
+    return () => timeout.current && clearTimeout(timeout.current);
   }, [loading]);
 
   const handleFindTask = () => {
     setLoading(true);
+    const min = 0;
+    const max = data?.length;
+    const randomTask = Math.floor(Math.random() * max);
+
+    console.log(randomTask);
   };
   return (
     <div className="Main">
