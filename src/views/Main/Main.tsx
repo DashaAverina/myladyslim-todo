@@ -14,8 +14,7 @@ const buttonTextData = {
 export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
   const [lang, setLang] = useState<tLanguage>("Rus");
   const [loading, setLoading] = useState(false);
-  const [taskData, setTaskData] = useState();
-  const [curTask, setCurTask] = useState();
+  const [taskData, setTaskData] = useState<TaskContent>();
   const timeout = useRef<ReturnType<typeof setTimeout> | undefined>();
 
   useEffect(() => {
@@ -28,12 +27,18 @@ export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
   }, [loading]);
 
   const handleFindTask = () => {
+    if (!data) return;
     setLoading(true);
-    const min = 0;
-    const max = data?.length;
-    const randomTask = Math.floor(Math.random() * max);
 
-    console.log(randomTask);
+    const dataCopy = data.slice();
+    const filteredData = dataCopy.filter(
+      (item) => item.slug !== taskData?.slug
+    );
+
+    const max = filteredData?.length;
+    const randomIndex = Math.floor(Math.random() * max);
+
+    setTaskData(filteredData[randomIndex]);
   };
   return (
     <div className="Main">
