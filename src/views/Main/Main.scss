@@ -6,4 +6,38 @@
   min-height: 100vh;
   width: 100%;
   background-position: center;
+  &-roll {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 2.5rem;
+    outline: none;
+    border: 1px solid var(--black_0);
+    background-color: var(--white_0);
+    border-radius: 1rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+    min-width: 250px;
+    min-height: 55px;
+
+    &:hover,
+    &:focus {
+      top: 49%;
+      background-color: var(--black_0);
+      color: var(--white_0);
+    }
+  }
+  &-logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 3rem;
+    font-family: var(--lobster);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @media screen and (min-width: 768px) {
+      font-size: 4rem;
+    }
+  }
 }

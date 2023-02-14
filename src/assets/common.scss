@@ -5,6 +5,8 @@
   //colors
   --black_0: #333333;
   --white_0: #fff;
+  --blue_100: #0000ff;
+  --sky_blue_100: #87ceeb;
 
   // fonts
 
@@ -14,4 +16,25 @@
 
 body {
   font-family: var(--roboto);
+  font-size: 16px;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 5px solid var(--white_0);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
