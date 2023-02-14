@@ -26,6 +26,10 @@
       background-color: var(--black_0);
       color: var(--white_0);
     }
+    &:disabled {
+      background-color: var(--grey_100);
+      color: var(--white_0);
+    }
   }
   &-logo {
     position: absolute;
