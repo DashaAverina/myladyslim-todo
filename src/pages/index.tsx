@@ -1,13 +1,10 @@
 import { fetchTaskContent, TaskContent } from "../lib/tasks";
+import { Main } from "views/Main/Main";
 
 export default function Index({ data }: { data: TaskContent[] }) {
   console.log(data);
 
-  return (
-    <div>
-      <img src={data?.[0]?.image} alt="image" />
-    </div>
-  );
+  return <Main />;
 }
 
 export async function getStaticProps() {
