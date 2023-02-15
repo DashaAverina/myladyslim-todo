@@ -18,8 +18,6 @@ export const TaskPopup: FC<iTaskPopup> = ({
   lang,
   loading,
 }) => {
-  console.log(data);
-
   return (
     <div className="TaskPopup">
       <div className="TaskPopup-content">
@@ -33,13 +31,10 @@ export const TaskPopup: FC<iTaskPopup> = ({
             <button className="TaskPopup-close" onClick={onClose}>
               <Close className="TaskPopup-close-icon" />
             </button>
-            <div className="TaskPopup-image-wrap">
-              <img
-                className="TaskPopup-image"
-                src={data?.image}
-                alt="Task-logo"
-              />
-            </div>
+            <div
+              className="TaskPopup-image-wrap"
+              style={{ backgroundImage: `url("${data?.image}")` }}
+            ></div>
             <div className="TaskPopup-text-container">
               <h2 className="TaskPopup-title">
                 {lang === "Rus" ? data?.title : data?.title_ukr}
