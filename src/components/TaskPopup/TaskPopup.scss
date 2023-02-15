@@ -15,7 +15,6 @@
     max-width: 90%;
     max-height: 90%;
     min-height: 50%;
-    overflow: auto;
 
     @media screen and (min-width: 768px) {
       max-width: 600px;
@@ -61,6 +60,9 @@
     color: var(--white_0);
     font-size: 1.25rem;
     letter-spacing: 0.03rem;
+    overflow: auto;
+    max-height: 200px;
+    word-wrap: break-word;
   }
   &-control {
     text-align: center;
