@@ -1,3 +1,4 @@
+import { TaskPopup } from "components/TaskPopup/TaskPopup";
 import { TaskContent } from "lib/tasks";
 import { useRef } from "react";
 import { useEffect } from "react";
@@ -40,8 +41,17 @@ export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
 
     setTaskData(filteredData[randomIndex]);
   };
+
+  const showTask = !loading && !!taskData;
   return (
     <div className="Main">
+      {showTask && (
+        <TaskPopup
+          onClose={() => setTaskData(undefined)}
+          updateTaskCallback={handleFindTask}
+          data={taskData}
+        />
+      )}
       <div className="Main-logo">My Lady Slim</div>
       <button className="Main-roll" onClick={handleFindTask} disabled={loading}>
         {loading ? <span className="loader"></span> : buttonTextData[lang]}

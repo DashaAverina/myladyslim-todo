@@ -1,11 +1,14 @@
 .Main {
   display: flex;
-  background-image: url("/images/crop.jpg");
+  background-image: url("/images/young-woman-measuring-her-waist.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
   width: 100%;
   background-position: center;
+  @media screen and (max-width: 767px) {
+    background-position: -60px center;
+  }
   &-roll {
     position: absolute;
     top: 50%;
@@ -13,31 +16,29 @@
     transform: translate(-50%, -50%);
     outline: none;
     border: 1px solid var(--black_0);
-    background-color: var(--white_0);
+    background-color: var(--purple_100);
     border-radius: 1rem;
-    transition: 0.3s ease background-color, 0.3s ease color;
+    transition: 0.3s ease background-color;
     cursor: pointer;
     min-width: 250px;
     min-height: 55px;
+    color: var(--white_0);
+    font-size: 1rem;
+    font-weight: 700;
 
-    &:hover,
-    &:focus {
-      background-color: var(--black_0);
-      color: var(--white_0);
-    }
     &:disabled {
-      background-color: var(--grey_100);
-      color: var(--white_0);
+      background-color: var(--black_0);
     }
   }
   &-logo {
     position: absolute;
     top: 2rem;
-    left: 2rem;
+    right: 2rem;
     font-size: 3rem;
     font-family: var(--lobster);
     padding-left: 1rem;
     padding-right: 1rem;
+    color: var(--purple_100);
     @media screen and (min-width: 768px) {
       font-size: 4rem;
     }
