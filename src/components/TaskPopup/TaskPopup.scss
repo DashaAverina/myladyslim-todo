@@ -11,12 +11,27 @@
     transform: translate(-50%, -50%);
     background-color: var(--white_0);
     border-radius: 1rem;
-    padding: 1.5rem;
+    padding: 2rem;
     width: 100%;
-    max-width: 90%;
+    max-width: 70%;
 
     @media screen and (min-width: 768px) {
       max-width: 600px;
     }
+  }
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem;
+    outline: none;
+    border: none;
+    background: none;
+    line-height: 1;
+    cursor: pointer;
+  }
+  &-close-icon {
+    width: 32px;
+    height: 32px;
   }
 }
