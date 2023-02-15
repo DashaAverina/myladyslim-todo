@@ -13,15 +13,16 @@ const buttonTextData = {
 export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
   const { handleFindTask, loading, taskData, setTaskData } = useMain(data);
   const { lang, toggleLanguage } = useLang();
-  const showTask = !loading && !!taskData;
+  const showTask = !!taskData;
   return (
-    <div className="Main">
+    <section className="Main">
       {showTask && (
         <TaskPopup
           onClose={() => setTaskData(undefined)}
           updateTaskCallback={handleFindTask}
           data={taskData}
           lang={lang}
+          loading={loading}
         />
       )}
       <div className="Main-head">
@@ -31,9 +32,9 @@ export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
           toggleLanguageCallback={toggleLanguage}
         />
       </div>
-      <button className="Main-roll" onClick={handleFindTask} disabled={loading}>
-        {loading ? <span className="loader"></span> : buttonTextData[lang]}
+      <button className="Main-roll" onClick={handleFindTask}>
+        {buttonTextData[lang]}
       </button>
-    </div>
+    </section>
   );
 };

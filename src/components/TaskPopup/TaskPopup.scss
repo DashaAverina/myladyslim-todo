@@ -9,11 +9,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--white_0);
+    background-color: var(--purple_100);
     border-radius: 1rem;
-    padding: 2rem;
     width: 100%;
-    max-width: 70%;
+    max-width: 90%;
+    max-height: 90%;
+    min-height: 50%;
+    overflow: auto;
 
     @media screen and (min-width: 768px) {
       max-width: 600px;
@@ -21,8 +23,8 @@
   }
   &-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0rem;
+    right: 0rem;
     padding: 0.75rem;
     outline: none;
     border: none;
@@ -33,5 +35,66 @@
   &-close-icon {
     width: 32px;
     height: 32px;
+    fill: var(--white_0);
+  }
+  &-image-wrap {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  &-image {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  &-title {
+    margin-bottom: 1rem;
+    color: var(--white_0);
+    font-size: 1.75rem;
+  }
+  &-text-container {
+    padding: 0 1rem 1rem 1rem;
+  }
+  &-description {
+    color: var(--white_0);
+    font-size: 1.25rem;
+    letter-spacing: 0.03rem;
+  }
+  &-control {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  &-cancel {
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--grey_100);
+    color: var(--white_0);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+  &-update {
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--white_0);
+    color: var(--black_0);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  &-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-loader .loader {
+    width: 72px;
+    height: 72px;
   }
 }
