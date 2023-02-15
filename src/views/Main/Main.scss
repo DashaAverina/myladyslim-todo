@@ -31,14 +31,18 @@
       background-color: var(--black_0);
     }
   }
-  &-logo {
+  &-head {
     position: absolute;
     top: 2rem;
     right: 2rem;
-    font-size: 3rem;
-    font-family: var(--lobster);
     padding-left: 1rem;
     padding-right: 1rem;
+    background-color: rgb(1, 20, 47, 0.3);
+    border-radius: 0.5rem;
+  }
+  &-logo {
+    font-size: 3rem;
+    font-family: var(--lobster);
     color: var(--purple_100);
     @media screen and (min-width: 768px) {
       font-size: 4rem;

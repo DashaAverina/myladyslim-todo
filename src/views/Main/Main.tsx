@@ -1,11 +1,8 @@
 import { TaskPopup } from "components/TaskPopup/TaskPopup";
+import { useLang } from "hooks/useLang";
 import { TaskContent } from "lib/tasks";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import { FC } from "react";
-
-type tLanguage = "Rus" | "Ua";
+import { useMain } from "./useMain";
 
 const buttonTextData = {
   Rus: "Получить задание",
@@ -13,35 +10,8 @@ const buttonTextData = {
 };
 
 export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
-  const [lang, setLang] = useState<tLanguage>("Rus");
-  const [loading, setLoading] = useState(false);
-  const [taskData, setTaskData] = useState<TaskContent>();
-  const timeout = useRef<ReturnType<typeof setTimeout> | undefined>();
-
-  useEffect(() => {
-    if (!loading) return;
-    timeout.current = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => timeout.current && clearTimeout(timeout.current);
-  }, [loading]);
-
-  const handleFindTask = () => {
-    if (!data) return;
-    setLoading(true);
-
-    const dataCopy = data.slice();
-    const filteredData = dataCopy.filter(
-      (item) => item.slug !== taskData?.slug
-    );
-
-    const max = filteredData?.length;
-    const randomIndex = Math.floor(Math.random() * max);
-
-    setTaskData(filteredData[randomIndex]);
-  };
-
+  const { handleFindTask, loading, taskData, setTaskData } = useMain(data);
+  const { lang, setLang } = useLang();
   const showTask = !loading && !!taskData;
   return (
     <div className="Main">
@@ -50,9 +20,12 @@ export const Main: FC<{ data: TaskContent[] }> = ({ data }) => {
           onClose={() => setTaskData(undefined)}
           updateTaskCallback={handleFindTask}
           data={taskData}
+          lang={lang}
         />
       )}
-      <div className="Main-logo">My Lady Slim</div>
+      <div className="Main-head">
+        <p className="Main-logo">My Lady Slim</p>
+      </div>
       <button className="Main-roll" onClick={handleFindTask} disabled={loading}>
         {loading ? <span className="loader"></span> : buttonTextData[lang]}
       </button>
