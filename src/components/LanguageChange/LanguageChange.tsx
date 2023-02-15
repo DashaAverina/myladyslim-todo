@@ -2,7 +2,7 @@ import { tLanguage } from "hooks/useLang";
 import { FC } from "react";
 
 interface iLanguageChange {
-  toggleLanguageCallback: () => void;
+  toggleLanguageCallback: (lang: tLanguage) => void;
   activeLanguage: tLanguage;
 }
 
@@ -16,7 +16,7 @@ export const LanguageChange: FC<iLanguageChange> = ({
         className={`LanguageChange-btn ${
           activeLanguage === "Rus" ? "active" : ""
         }`}
-        onClick={toggleLanguageCallback}
+        onClick={() => toggleLanguageCallback("Rus")}
       >
         Русский
       </button>
@@ -24,7 +24,7 @@ export const LanguageChange: FC<iLanguageChange> = ({
         className={`LanguageChange-btn ${
           activeLanguage === "Ua" ? "active" : ""
         }`}
-        onClick={toggleLanguageCallback}
+        onClick={() => toggleLanguageCallback("Ua")}
       >
         Українська
       </button>

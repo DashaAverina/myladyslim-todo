@@ -9,13 +9,13 @@ export const useLang = () => {
 
   useEffect(() => {
     const lang = sessionStorage.getItem(langKey);
-    if (!lang) return sessionStorage.setItem(langKey, lang);
+    if (!lang) return sessionStorage.setItem(langKey, "Rus");
 
     setLang(lang as tLanguage);
   }, []);
 
-  const toggleLanguage = () => {
-    const newLang = lang === "Rus" ? "Ua" : "Rus";
+  const toggleLanguage = (newLang: tLanguage) => {
+    if (lang === newLang) return;
     setLang(newLang);
     sessionStorage.setItem(langKey, newLang);
   };

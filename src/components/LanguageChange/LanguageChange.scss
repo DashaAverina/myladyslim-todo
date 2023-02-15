@@ -1,0 +1,31 @@
+.LanguageChange {
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 1rem;
+  &-btn {
+    outline: none;
+    border: none;
+    background-color: var(--grey_100);
+    font-size: 1rem;
+    color: var(--white_0);
+    width: 100%;
+    max-width: 48%;
+    border-radius: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+
+    &.active {
+      background-color: var(--purple_100);
+    }
+    @media screen and (min-width: 768px) {
+      font-size: 1.25rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
