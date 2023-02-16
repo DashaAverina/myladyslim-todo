@@ -9,11 +9,12 @@
     font-size: 1rem;
     color: var(--white_0);
     width: 100%;
-    max-width: 48%;
+    max-width: 46%;
     border-radius: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     cursor: pointer;
+    text-align: center;
 
     &:not(:last-child) {
       margin-right: 0.5rem;
