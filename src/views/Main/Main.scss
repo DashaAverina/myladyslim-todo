@@ -16,7 +16,7 @@
     transform: translate(-50%, -50%);
     outline: none;
     border: 1px solid var(--black_0);
-    background-color: var(--purple_100);
+    background-color: var(--orange_100);
     border-radius: 1rem;
     transition: 0.3s ease background-color;
     cursor: pointer;
@@ -50,7 +50,7 @@
   &-logo {
     font-size: 2.5rem;
     font-family: var(--lobster);
-    color: var(--purple_100);
+    color: var(--orange_100);
     margin-bottom: 1rem;
     @media screen and (min-width: 768px) {
       font-size: 5rem;

@@ -9,12 +9,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--purple_100);
+    background-color: var(--orange_100);
     border-radius: 1rem;
     width: 100%;
     max-width: 90%;
     max-height: 90%;
     min-height: 50%;
+    overflow: auto;
 
     @media screen and (min-width: 768px) {
       max-width: 600px;
@@ -39,7 +40,7 @@
   &-image-wrap {
     max-width: 100%;
     margin-bottom: 1rem;
-    min-height: 300px;
+    min-height: 250px;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,9 +59,19 @@
     color: var(--white_0);
     font-size: 1.25rem;
     letter-spacing: 0.03rem;
-    overflow: auto;
-    max-height: 25vh;
     word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    transition: 0.3s ease;
+
+    &.full {
+      display: block;
+      -webkit-box-orient: unset;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
   }
   &-control {
     text-align: center;
@@ -70,8 +81,8 @@
     font-size: 1rem;
     border: none;
     outline: none;
-    background-color: var(--grey_100);
     color: var(--white_0);
+    background-color: var(--black_0);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     margin-right: 1rem;
@@ -96,5 +107,17 @@
   &-loader .loader {
     width: 72px;
     height: 72px;
+  }
+  &-read-more {
+    display: block;
+    margin-left: auto;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1.25rem;
+    color: var(--white_0);
+    margin-top: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
   }
 }
